@@ -17,7 +17,7 @@ The program prompts the user to input their name, surname, and date of birth. It
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/alfanowski/password-compiler.git
+    git clone https://github.com/alfanoandrea/password-compiler.git
     cd password-compiler
     ```
 
