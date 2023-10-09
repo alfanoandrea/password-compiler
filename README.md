@@ -4,7 +4,7 @@
 
 ## Description
 
-The "Password Compiler" program is a Python application that generates possible passwords based on a person's name, surname, and date of birth. It intelligently combines these inputs, adding numbers and special characters to increase the complexity and security of the generated passwords.
+The "Password Compiler" program is a Python application that generates possible passwords based on a person's name, surname, and date of birth.
 
 ## How it Works
 
