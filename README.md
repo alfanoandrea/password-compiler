@@ -33,7 +33,7 @@ The program prompts the user to input their name, surname, and date of birth. It
 3. **Run the program:**
 
     ```bash
-    python password_compiler.py
+    python3 compiler.py
     ```
 
    Follow the on-screen instructions to generate passwords based on your name, surname, and date of birth.
