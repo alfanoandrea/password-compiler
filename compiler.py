@@ -1,185 +1,220 @@
-from os import system, name
-from time import sleep
 import os
 import time
+import sys
+
+class Color:
+    violet = "\033[35m"
+    red = "\u001b[31m"
+    cyan = "\u001b[36m"
+    green = "\u001b[32m"
+    yellow = "\u001b[33m"
+    fucsia = "\u001b[35;1m"
+    gray = "\033[90m"
+    reset = "\u001b[0m"
+
 
 def clear():
-  #windows
-  if name == 'nt':
-    _ = system('cls')
-  #mac/linux
-  else:
-    _ = system('clear')
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
-sleep(0.5)
-clear()
 
-print(
-  "\u001b[92m██████╗░░█████╗░░██████╗░██████╗░██╗░░░░░░░██╗░█████╗░██████╗░██████╗░"
-)
-time.sleep(0.05)
-print(
-  "\u001b[92m██╔══██╗██╔══██╗██╔════╝██╔════╝░██║░░██╗░░██║██╔══██╗██╔══██╗██╔══██╗"
-)
-time.sleep(0.05)
-print(
-  "\u001b[92m██████╔╝███████║╚█████╗░╚█████╗░░╚██╗████╗██╔╝██║░░██║██████╔╝██║░░██║"
-)
-time.sleep(0.05)
-print(
-  "\u001b[92m██╔═══╝░██╔══██║░╚═══██╗░╚═══██╗░░████╔═████║░██║░░██║██╔══██╗██║░░██║"
-)
-time.sleep(0.05)
-print(
-  "\u001b[92m██║░░░░░██║░░██║██████╔╝██████╔╝░░╚██╔╝░╚██╔╝░╚█████╔╝██║░░██║██████╔╝"
-)
-time.sleep(0.05)
-print(
-  "\u001b[92m╚═╝░░░░░╚═╝░░╚═╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░░╚════╝░╚═╝░░╚═╝╚═════╝░"
-)
-time.sleep(0.05)
-print("")
-print(
-  "\u001b[92m░█████╗░░█████╗░███╗░░░███╗██████╗░██╗██╗░░░░░███████╗██████╗░")
-time.sleep(0.05)
-print(
-  "\u001b[92m██╔══██╗██╔══██╗████╗░████║██╔══██╗██║██║░░░░░██╔════╝██╔══██╗")
-time.sleep(0.05)
-print(
-  "\u001b[92m██║░░╚═╝██║░░██║██╔████╔██║██████╔╝██║██║░░░░░█████╗░░██████╔╝")
-time.sleep(0.05)
-print(
-  "\u001b[92m██║░░██╗██║░░██║██║╚██╔╝██║██╔═══╝░██║██║░░░░░██╔══╝░░██╔══██╗")
-time.sleep(0.05)
-print(
-  "\u001b[92m╚█████╔╝╚█████╔╝██║░╚═╝░██║██║░░░░░██║███████╗███████╗██║░░██║")
-time.sleep(0.05)
-print(
-  "\u001b[92m░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚══════╝╚═╝░░╚═╝")
-print("")
-time.sleep(0.6)
-print("")
-print(
-  "\u001b[31m▒█▀▀█ █░░█ 　 █▀▀█ █░░ █▀▀ █▀▀█  　 █▀▀█ █▀▀▄ █▀▀▄ 　 █░░ █▀▀█ █▀▀█ █▀▀ █░█ "
-)
-print(
-  "\u001b[31m▒█▀▀▄ █▄▄█ 　 █▄▄█ █░░ █▀▀ █▄▄█  　 █▄▄█ █░░█ █░░█ 　 █░░ █░░█ █▄▄▀ █▀▀ ▄▀▄ "
-)
-print(
-  "\u001b[31m▒█▄▄█ ▄▄▄█ 　 ▀░░▀ ▀▀▀ ▀░░ ▀░░▀  　 ▀░░▀ ▀░░▀ ▀▀▀░ 　 ▀▀▀ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀░▀"
-)
-print("")
-print("")
+def intro(cascata):
+    clear()
+    if (cascata):
+        time.sleep(0.1)
+    print(Color.green + "   _____                             _ ")
+    if (cascata):
+        time.sleep(0.1)
+    print("  |  _  |___ ___ ___ _ _ _ ___ ___ _| |")
+    if (cascata):
+        time.sleep(0.1)
+    print("  |   __| .'|_ -|_ -| | | | . |  _| . |")
+    if (cascata):
+        time.sleep(0.1)
+    print("  |__|  |__,|___|___|_____|___|_| |___|\n")
+    if (cascata):
+        time.sleep(0.1)
+    print("     _____               _ _         ")
+    if (cascata):
+        time.sleep(0.1)
+    print("    |     |___ _____ ___|_| |___ ___ ")
+    if (cascata):
+        time.sleep(0.1)
+    print("    |   --| . |     | . | | | -_|  _|")
+    if (cascata):
+        time.sleep(0.1)
+    print("    |_____|___|_|_|_|  _|_|_|___|_|  ")
+    if (cascata):
+        time.sleep(0.1)
+    print("                    |_|            \n")
+    if (cascata):
+        time.sleep(0.1)
+    testo1 = Color.violet + "\n      by alfanowski    " + Color.reset + "version: 3.0 \n\n\n"
+    if (cascata):
+        for carattere in testo1:
+            sys.stdout.write(carattere)
+            sys.stdout.flush()
+            time.sleep(0.05)
+    else:
+        print(testo1)
+    if (cascata):
+        time.sleep(0.2)
+        testo2 = Color.gray + "\t      [Press Enter]\n" + Color.reset
+        for carattere in testo2:
+            sys.stdout.write(carattere)
+            sys.stdout.flush()
+            time.sleep(0.1)
+        input()
+    print(Color.red + "------------------------------------------\n" + Color.reset)
 
-time.sleep(0.9)
-print("\033[93mselect your language\033[0m")
-print("1. \033[94mENGLISH\033[0m")
-print("2. \033[94mITALIAN\033[0m")
-print("3. \033[94mRUSSIAN\033[0m")
-language = int(input())
-print("")
 
-while (language >= 4 or language <= 0):
-  print("\u001b[31mERROR, invalid number")
-  for i in range(5):
-    print(".", end='')
-    time.sleep(0.3)
-  time.sleep(0.15)
-  print(" ")
-  print("\033[93mselect your language:\033[0m")
-  print("\033[94m1. ENGLISH\033[0m")
-  print("\033[94m2. ITALIAN\033[0m")
-  print("\033[94m3. RUSSIAN\033[0m")
-  language = int(input())
-  print("")
+def getName():
+    while True:
+        intro(cascata = False)
+        print(Color.yellow + "Write the name")
+        nome = input(Color.red + " >> " + Color.reset)
+        if all(char.isalpha() for char in nome) and len(nome) > 1:
+            break
+    return nome
 
-if language == 1:
-  print("\033[93mwrite the name (lowercase)\033[0m")
-  nome = input()
-  print("")
-  print("\33[93mwrite the surname (lowercase)\033[0m")
-  cognome = input()
-  print("")
-  print("\033[93mwrite the birth year (DDMMYYYY)\033[0m")
-  anno = input()
-elif language == 2:
-  print("\033[93mscrivi il nome (minuscolo)\033[0m")
-  nome = input()
-  print("")
-  print("\033[93mscrivi il cognome (minuscolo)\033[0m")
-  cognome = input()
-  print("")
-  print("\033[93mscrivi l'anno di nascita (GGMMAAAA)\033[0m")
-  anno = input()
-else:
-  print("\033[93mнапишите имя (строчная буква)\033[0m")
-  nome = input()
-  print("")
-  print("\033[93mнапиши фамилию (строчная буква)\033[0m")
-  cognome = input()
-  print("")
-  print("\033[93mнапиши год рождения (DDMMYYYY)\033[0m")
-  anno = input()
 
-punto = "."
-zero = "0"
+def getSurname():
+    while True:
+        intro(cascata = False)
+        print(Color.yellow + "Write the surname")
+        cognome = input(Color.red + " >> " + Color.reset)
+        if all(char.isalpha() for char in cognome) and len(nome) > 1:
+            break
+    return cognome
+
+
+def getNascita():
+    while True:
+        intro(cascata = False)
+        print(Color.yellow + "Write the birth year (DDMMYYYY)")
+        nascita = str(input(Color.red + " >> " + Color.reset))
+        if len(nascita) == 8 and nascita.isdigit():
+            break
+    return nascita
+
+
+def correct(nome, cognome, giorno, mese, anno):
+    while True:
+        while True:
+            intro(cascata = False)
+            print(Color.cyan + "         NAME " + Color.violet + "--> " + Color.reset + nome.capitalize())
+            print(Color.cyan + "      SURNAME " + Color.violet + "--> " + Color.reset + cognome.capitalize())
+            print(Color.cyan + "   BIRTH DATE " + Color.violet + "--> " + Color.reset + giorno + "/" + mese + "/" + anno)
+            print("\nAre you sure? (Y or N)")
+            selezione = input(Color.red + " >> " + Color.reset)
+            if selezione == 'y' or selezione == 'Y' or selezione == 'n' or selezione == 'N':
+                break
+        if selezione == 'y' or selezione == 'Y':
+            return True
+        else:
+            return False
+        
+
+def nomeFile():
+    while True:
+        while True:
+            intro(cascata = False)
+            print(Color.yellow + "Give a name to the file to generate (without .txt)" + Color.reset)
+            file = input(Color.red + " >> " + Color.reset)
+            if len(file) > 0:
+                break
+        while True:
+            intro(cascata = False)
+            print(Color.cyan + "         FILE " + Color.violet + "--> " + Color.reset + file + Color.gray + ".txt" + Color.reset)
+            print("\nAre you sure? (Y or N)")
+            selezione = input(Color.red + " >> " + Color.reset)
+            if selezione == 'y' or selezione == 'Y' or selezione == 'n' or selezione == 'N':
+                break
+        if selezione == 'y' or selezione == 'Y':
+            return file + ".txt"
+
+
+def generazione(file, combinazioni):
+    count = 0
+    with open(file, 'w') as f:
+        for i in range(len(combinazioni)):
+            for j in range(len(combinazioni)):
+                if i != j:
+                    f.write(combinazioni[i] + combinazioni[j] + "\n")
+                    count += 1
+
+        for i in range(len(combinazioni)):
+            for j in range(len(combinazioni)):
+                for k in range(len(combinazioni)):
+                    if i != j and i != k and j != k:
+                        f.write(combinazioni[i] + combinazioni[j] + combinazioni[k] + "\n")
+                        count += 1
+
+        for i in range(len(combinazioni)):
+            for j in range(len(combinazioni)):
+                for k in range(len(combinazioni)):
+                    for o in range(len(combinazioni)):
+                        if i != j and i != k and i != o and j != k and j != o and k != o:
+                            f.write(combinazioni[i] + combinazioni[j] + combinazioni[k] + combinazioni[o] + "\n")
+                            count += 1
+
+        for i in range(len(combinazioni)):
+            for j in range(len(combinazioni)):
+                f.write(combinazioni[i] + combinazioni[j] + "\n")
+                count += 1
+
+        for i in range(len(combinazioni)):
+            for j in range(len(combinazioni)):
+                for k in range(len(combinazioni)):
+                    f.write(combinazioni[i] + combinazioni[j] + combinazioni[k] + "\n")
+                    count += 1
+
+        for i in range(len(combinazioni)):
+            for j in range(len(combinazioni)):
+                for k in range(len(combinazioni)):
+                    for o in range(len(combinazioni)):
+                        f.write(combinazioni[i] + combinazioni[j] + combinazioni[k] + combinazioni[o] + "\n")
+                        count += 1
+    return count
+
+    
+def fine(file, paroleGenerate):
+    intro(cascata = False)
+    print("The file " + Color.green + file + Color.reset + " has been created!")
+    print("\nLines: " + Color.cyan + paroleGenerate + Color.reset)
+    input()
+    clear()
+
+
+# main
+
+intro(cascata = True)
+
+while True:
+    nome = getName().lower()
+    cognome = getSurname().lower()
+    nascita = getNascita()
+    giorno = str(nascita[:2])
+    mese = str(nascita[2:4])
+    anno = str(nascita[4:])
+    if correct(nome, cognome, giorno, mese, anno):
+        break
+
+file = nomeFile()  
+upperNome = nome.capitalize()
+upperCognome = cognome.capitalize()
+fullUpperNome = nome.swapcase()
+fullUpperCognome = cognome.swapcase()
 abbrevanno = anno[-2:]
-
-maiuscnome = (nome.capitalize())
-maiusccognome = (cognome.capitalize())
-fullmaiuscnome = (nome.swapcase())
-fullmaiusccognome = (cognome.swapcase())
-
-print("")
-print("")
-time.sleep(0.5)
-print(
-  "\033[91m--------------------------------------------------------------------------------"
-)
-
-print("")
-print("")
-if language == 1:
-  print(
-    "\u001b[92mthe file \033[93mpassword.txt \u001b[92mhas been created here: \033[0m",
-    end='')
-elif language == 2:
-  print(
-    "\u001b[92mil file \033[93mpassword.txt \u001b[92mè stato creato qui: \033[0m",
-    end='')
-else:
-  print("\u001b[92mв этой папке был создан файл \033[93mpassword.txt: \033[0m",
-        end='')
-directory = os.getcwd()
-
-print(directory, end='')
-
-print("/password.txt")
-
-f = open("password.txt", "w")
-
-combinazioni = [
-  nome, cognome, anno, abbrevanno, ".", maiuscnome, maiusccognome,
-  fullmaiuscnome, fullmaiusccognome
-]
-for i in range(9):
-  for j in range(9):
-    for k in range(9):
-      f.write(combinazioni[i] + combinazioni[j] + combinazioni[k] + "\n")
-
-for l in range(9):
-  for m in range(9):
-    for n in range(9):
-      for o in range(9):
-        f.write(combinazioni[l] + combinazioni[m] + combinazioni[n] +
-                combinazioni[o] + "\n")
-
-f.close()
-
-print("")
-print("")
-print(
-  "\033[91m--------------------------------------------------------------------------------"
-)
-print("")
-print("")
+combinazioni = [nome, cognome, fullUpperCognome, fullUpperNome, giorno, mese, anno, abbrevanno, upperNome, upperCognome]
+combinazioni.extend(['.', ',', '?', '@', '#', '_', '-'])
+combinazioni.extend(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
+intro(cascata = False)
+for i in range(6):
+        sys.stdout.write('\r       Loading' + '.' * i)
+        sys.stdout.flush()
+        time.sleep(0.5)
+paroleGenerate = str(generazione(file, combinazioni))
+fine(file, paroleGenerate)
