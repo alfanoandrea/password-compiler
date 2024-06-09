@@ -1,6 +1,5 @@
 import os
 import time
-import sys
 import itertools
 try:
     from tqdm import tqdm
@@ -16,7 +15,6 @@ class Color:
     cyan = "\u001b[36m"
     green = "\u001b[32m"
     yellow = "\u001b[33m"
-    fucsia = "\u001b[35m"
     gray = "\033[90m"
     italic = "\033[3m"
     reset = "\u001b[0m"
@@ -169,7 +167,7 @@ if __name__ == "__main__":
     combinazioni = [
         nome, cognome, 
         nome.capitalize(), cognome.capitalize(),
-        nome.swapcase(), nome.swapcase(), 
+        nome.upper(), nome.upper(), 
         giorno, mese, anno, anno[-2:], 
         '.', ',', '?', '@', '#', '_', '-', '!',
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
