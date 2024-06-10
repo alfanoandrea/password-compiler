@@ -115,31 +115,33 @@ def precisione():
     while True:
         intro(dynamic = False)
         print(f"{Color.yellow} Enter the file size:")
-        print(f"{Color.green}  1){Color.reset} Small {Color.gray}{Color.italic} more than 10 thousand passwords")
-        print(f"{Color.green}  2){Color.reset} Normal {Color.gray}{Color.italic} more than 350 thousand passwords")
-        print(f"{Color.green}  3){Color.reset} Big {Color.gray}{Color.italic} more than 11 million passwords\n")
+        print(f"{Color.green}  1){Color.reset} Small {Color.gray}{Color.italic} more than 15 thousand passwords")
+        print(f"{Color.green}  2){Color.reset} Big {Color.gray}{Color.italic} more than 500 thousand passwords")
+        print(f"{Color.green}  3){Color.reset} Huge {Color.gray}{Color.italic} more than 19 million passwords\n")
         sel = input(f"{Color.red}  >>  {Color.reset}")
         if sel.isnumeric() and 1 <= int(sel) <= 3: 
             return int(sel) + 3
 
 
 def generazione(file, combinazioni, dimensione):
-    intro(dynamic = False)
-    print (f"{Color.gray} Data calculation...   {Color.reset}")
+    intro(dynamic=False)
+    print(f"{Color.gray} Data calculation... {Color.reset}")
     totale = 0
     for length in range(2, dimensione):
         totale += len(list(itertools.permutations(combinazioni, length)))
-    intro(dynamic = False)
+
+    intro(dynamic=False)
     cont = 0
     print(Color.green, end='')
-    with tqdm(total = totale, desc = '', unit = 'B', leave = False, bar_format = '  {percentage:3.0f}% |{bar}|  ', ncols = 35) as pbar:
-            with open(file, 'w') as f:
-                for length in range(2, dimensione): 
-                    for combo in itertools.permutations(combinazioni, length):
-                        if len(''.join(combo)) >= 6:
-                            f.write(''.join(combo) + "\n")
-                            cont += 1
-                            pbar.update(1)
+    with tqdm(total=totale, desc='', unit='B', leave=False, bar_format='  {percentage:3.0f}% |{bar}|  ', ncols=35) as pbar:
+        with open(file, 'w') as f:
+            for length in range(1, dimensione):
+                for combo in itertools.permutations(combinazioni, length):
+                    password = ''.join(combo)
+                    if len(password) >= 6 and any(name in password.lower() for name in combinazioni[:6]):
+                        f.write(password + "\n")
+                        cont += 1
+                        pbar.update(1)
     print(Color.reset, end='')
     return cont
 
@@ -169,7 +171,7 @@ if __name__ == "__main__":
         nome.capitalize(), cognome.capitalize(),
         nome.upper(), nome.upper(), 
         giorno, mese, anno, anno[-2:], 
-        '.', ',', '?', '@', '#', '_', '-', '!',
+        '.', ',', '?', '@', '#', '_', '-', '!', '$', '%', '[', ']', '(', ')'
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
     ]
     paroleGenerate = str(generazione(file, combinazioni, precisione()))
