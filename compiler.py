@@ -41,7 +41,7 @@ def intro(dynamic):
         "     |_____|___|_|_|_|  _|_|_|___|_|  \n",
         "                     |_|            \n\n",
         Color.violet, Color.italic,
-        f"       by alfanowski     {Color.reset}version: 3.1\n\n"
+        f"       by alfanowski     {Color.reset}version: 3.2\n\n"
     ]
     for i in logo:
         for j in i:
