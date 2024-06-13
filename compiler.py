@@ -77,11 +77,11 @@ class graphics:
     def selezione():
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.yellow} What do you want to do?")
-            print(f"  {Color.gray}({Color.cyan}1{Color.gray}){Color.reset} Generate dictionary file")
-            print(f"  {Color.gray}({Color.cyan}2{Color.gray}){Color.reset} About")
-            print(f"  {Color.gray}({Color.cyan}3{Color.gray}){Color.reset} Update")
-            print(f"  {Color.gray}({Color.red}X{Color.gray}){Color.red} Exit{Color.reset}\n")
+            print(f"{Color.yellow} What do you want to do?\n")
+            print(f"  {Color.gray}[{Color.cyan}1{Color.gray}]{Color.reset} Generate")
+            print(f"  {Color.gray}[{Color.cyan}2{Color.gray}]{Color.reset} About")
+            print(f"  {Color.gray}[{Color.cyan}3{Color.gray}]{Color.reset} Update")
+            print(f"\n  {Color.gray}[{Color.red}X{Color.gray}]{Color.red} Exit{Color.reset}\n")
             sel = input(f"{Color.red}  >>  {Color.reset}").lower()
             if sel in ['1', '2', '3', 'x']:
                 return sel
@@ -253,32 +253,34 @@ def about():
 
 
 def update():
+    graphics.intro(dynamic = False)
     def checkVersion():
         try:
             with urllib.request.urlopen(versionURL, timeout=5) as f:
                 latestVersion = f.read().decode('utf-8').strip()    
             if version != latestVersion:
-                print(f"{Color.yellow}A new version {Color.green}({latestVersion}){Color.yellow} is available. {Color.gray}Updating...{Color.reset}\n")
+                print(f"{Color.yellow} A new version {Color.green}({latestVersion}){Color.yellow} is available. {Color.gray}Updating...{Color.reset}\n")
                 performUpdate()
             else:
-                print(f"{Color.gray}The script is already up to date!{Color.reset}")
+                print(f"{Color.gray} The script is already up to date!{Color.reset}")
         except urllib.error.URLError as e:
-            print(f"{Color.red}Error checking version!{Color.reset}")
+            print(f"{Color.red} Error checking version!{Color.reset}")
         except Exception as e:
-            print(f"{Color.red}Error during version check!{Color.reset}")
+            print(f"{Color.red} Error during version check!{Color.reset}")
 
     def performUpdate():
         try:
             subprocess.run(["git", "clone", repository])
-            print(f"{Color.green}Update completed! Please run the script again.{Color.reset}")
+            print(f"{Color.green} Update completed! Please run the script again.{Color.reset}")
             exit()
         except Exception as e:
-            print(f"{Color.red}Error updating the script!{Color.reset}")
+            print(f"{Color.red} Error updating the script!{Color.reset}")
 
     if internet():
         checkVersion()
     else:
-        print("No internet connection!")
+        print(" No internet connection!")
+    input('\n')
 
 
 #   M - A - I - N 
