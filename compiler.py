@@ -61,16 +61,16 @@ class graphics:
             "     |     |___ _____ ___|_| |___ ___ \n",
             "     |   --| . |     | . | | | -_|  _|\n",
             "     |_____|___|_|_|_|  _|_|_|___|_|  \n",
-            "                     |_|            \n\n",
+            "                     |_|            \n",
             Color.violet, Color.italic,
-            f"       by alfanowski     {Color.reset}version: {version}\n\n"
+            f"       by alfanowski     {Color.reset}version: {version}\n"
         ]
         for i in logo:
             for j in i:
                 print(j, end='', flush=True)
                 time.sleep(0.01) if dynamic else None
         time.sleep(0.4) if dynamic else None
-        input(f"{Color.gray}                [PRESS ENTER]{Color.reset}\n\n") if dynamic else None
+        input(f"\n{Color.gray}                [PRESS ENTER]{Color.reset}\n\n") if dynamic else None
         print(f"{Color.red} ------------------------------------------\n{Color.reset}")
 
     def selezione():
