@@ -18,7 +18,7 @@ except ImportError:
 
 
 debug = False
-version = "3.3.1"
+version = "3.3.2"
 versionURL = "https://github.com/alfanoandrea/password-compiler/raw/main/version.txt"
 repository = "https://github.com/alfanoandrea/password-compiler"
 
@@ -92,8 +92,9 @@ def dictionary():
             return "babbo"
         while True:
             graphics.intro(dynamic = False)
-            nome = input(f"{Color.yellow} Write the name\n{Color.red}  >>  {Color.reset}")
-            if all(char.isalpha() for char in nome) and len(nome) > 1:
+            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
+            nome = input(f"{Color.cyan} Write the name\n{Color.red}  >>  {Color.reset}")
+            if all(char.isalpha() for char in nome) and len(nome) > 1 or nome.lower() == 'b':
                 return nome
 
     def getSurname():
@@ -101,8 +102,9 @@ def dictionary():
             return "natale"
         while True:
             graphics.intro(dynamic = False)
-            cognome = input(f"{Color.yellow} Write the surname\n{Color.red}  >>  {Color.reset}")
-            if all(char.isalpha() for char in cognome) and len(cognome) > 1:
+            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")            
+            cognome = input(f"{Color.cyan} Write the surname\n{Color.red}  >>  {Color.reset}")
+            if all(char.isalpha() for char in cognome) and len(cognome) > 1 or cognome.lower() == 'b':
                 return cognome
 
     def getNascita():
@@ -110,8 +112,9 @@ def dictionary():
             return "25122000"
         while True:
             graphics.intro(dynamic = False)
-            nascita = input(f"{Color.yellow} Write the birth year (DDMMYYYY)\n{Color.red}  >>  {Color.reset}")
-            if len(nascita) == 8 and nascita.isdigit():
+            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
+            nascita = input(f"{Color.cyan} Write the birth year {Color.gray}(DDMMYYYY)\n{Color.red}  >>  {Color.reset}")
+            if len(nascita) == 8 and nascita.isdigit() or nascita.lower() == 'b':
                 return nascita
 
     def current(nome, cognome, giorno, mese, anno):
@@ -131,13 +134,16 @@ def dictionary():
     def nomeFile():
         def chiediNomeFile():
             graphics.intro(dynamic=False)
-            file = input(Color.yellow + f" Give a name to the file to generate (without .txt)\n{Color.red}  >>  {Color.reset}")
+            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
+            file = input(f"{Color.cyan} Give a name to the file to generate {Color.gray}(without .txt)\n{Color.red}  >>  {Color.reset}")
+            if file.lower() == 'b':
+                return 'b'
             if not len(file) > 0:
                 return chiediNomeFile()
             return file
         
         def confermaNomeFile(file):
-            graphics.intro(dynamic=False)
+            graphics.intro(dynamic = False)
             print(f"{Color.cyan} FILE {Color.violet}>> {Color.reset}{file}{Color.gray}.txt{Color.reset}\n")
             selezione = input(f"{Color.yellow} Are you sure? {Color.gray}(Y or N)\n{Color.red}  >>  {Color.reset}").lower()
             if selezione not in ('y', 'n'):
@@ -147,6 +153,8 @@ def dictionary():
         if debug:
             return "debug.txt"
         file = chiediNomeFile()
+        if file.lower() == 'b':
+                return file
         selezione = confermaNomeFile(file)
         if selezione == 'y':
             return file + ".txt"
@@ -156,7 +164,7 @@ def dictionary():
     def precisione():
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.yellow} Enter the file size:")
+            print(f"{Color.cyan} Enter the file size:")
             print(f"{Color.green}  1){Color.reset} Small {Color.gray}{Color.italic} more than 15 thousand passwords")
             print(f"{Color.green}  2){Color.reset} Big {Color.gray}{Color.italic} more than 500 thousand passwords")
             print(f"{Color.green}  3){Color.reset} Huge {Color.gray}{Color.italic} more than 19 million passwords\n")
@@ -197,14 +205,23 @@ def dictionary():
 
     while True:
         nome = getName().lower()
+        if nome == 'b':
+            return
         cognome = getSurname().lower()
+        if cognome == 'b':
+            return
         nascita = getNascita()
+        if nascita == 'b':
+            return
         giorno = str(nascita[:2])
         mese = str(nascita[2:4])
         anno = str(nascita[4:])
         if current(nome, cognome, giorno, mese, anno):
             break
-    file = "dictionaries/" + nomeFile()  
+    file = nomeFile()
+    if file == 'b':
+        return
+    file = "dictionaries/" + file  
     combinazioni = [
         nome, cognome, 
         nome.capitalize(), cognome.capitalize(),
