@@ -10,7 +10,6 @@ try:
 except ImportError:
     subprocess.run(["pip", "install", "tqdm"])
     from tqdm import tqdm
-import socket
 try:
     import webbrowser
 except ImportError:
@@ -270,7 +269,7 @@ def update():
 
     def performUpdate():
         try:
-            subprocess.run(["git", "clone", repository])
+            subprocess.run(["git", "pull", "origin", "main"])
             print(f"{Color.green} Update completed! Please run the script again.{Color.reset}")
             exit()
         except Exception as e:
@@ -279,7 +278,7 @@ def update():
     if internet():
         checkVersion()
     else:
-        print(" No internet connection!")
+        print(f"{Color.red} No internet connection!{Color.reset}")
     input('\n')
 
 
