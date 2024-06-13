@@ -77,7 +77,7 @@ class graphics:
             print(f"  {Color.gray}[{Color.yellow}1{Color.gray}]{Color.cyan} Generate{Color.reset}")
             print(f"  {Color.gray}[{Color.yellow}2{Color.gray}]{Color.cyan} About{Color.reset}")
             print(f"  {Color.gray}[{Color.yellow}3{Color.gray}]{Color.cyan} Update{Color.reset}")
-            sel = input(f"\n{Color.violet}   >>  {Color.reset}").lower()
+            sel = input(f"\n{Color.violet}   >> {Color.reset}").lower()
             if sel in ['1', '2', '3', 'x']:
                 return sel
 
