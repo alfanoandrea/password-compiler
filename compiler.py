@@ -18,19 +18,20 @@ except ImportError:
 
 
 debug = False
-version = "3.3.2"
+version = "3.3.3"
 versionURL = "https://github.com/alfanoandrea/password-compiler/raw/main/version.txt"
 repository = "https://github.com/alfanoandrea/password-compiler"
 
 
 class Color:
-    violet = "\033[35m"
-    red = "\u001b[31m"
-    cyan = "\u001b[36m"
-    green = "\u001b[32m"
-    yellow = "\u001b[33m"
-    gray = "\033[90m"
-    italic = "\033[3m"
+    violet = "\033[35;1m"
+    red = "\u001b[31;1m"
+    cyan = "\u001b[36;1m"
+    green = "\u001b[32;1m"
+    yellow = "\u001b[33;1m"
+    fucsia = "\u001b[35;1m"
+    gray = "\033[90;1m"
+    italic = "\033[3;1m"
     reset = "\u001b[0m"
 
 
@@ -44,10 +45,7 @@ def internet():
 
 class graphics:
     def clear():
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
+            os.system("cls") if os.name == 'nt' else os.system("clear")
 
     def intro(dynamic):
         graphics.clear()
@@ -69,19 +67,17 @@ class graphics:
             for j in i:
                 print(j, end='', flush=True)
                 time.sleep(0.01) if dynamic else None
-        time.sleep(0.4) if dynamic else None
-        input(f"\n{Color.gray}                [PRESS ENTER]{Color.reset}\n\n") if dynamic else None
+        time.sleep(0.7) if dynamic else None
         print(f"{Color.red} ------------------------------------------\n{Color.reset}")
 
     def selezione():
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.yellow} What do you want to do?\n")
-            print(f"  {Color.gray}[{Color.cyan}1{Color.gray}]{Color.reset} Generate")
-            print(f"  {Color.gray}[{Color.cyan}2{Color.gray}]{Color.reset} About")
-            print(f"  {Color.gray}[{Color.cyan}3{Color.gray}]{Color.reset} Update")
-            print(f"\n  {Color.gray}[{Color.red}X{Color.gray}]{Color.red} Exit{Color.reset}\n")
-            sel = input(f"{Color.red}  >>  {Color.reset}").lower()
+            print(f"  {Color.gray}[{Color.yellow}X{Color.gray}]{Color.red} Exit{Color.reset}")
+            print(f"  {Color.gray}[{Color.yellow}1{Color.gray}]{Color.cyan} Generate{Color.reset}")
+            print(f"  {Color.gray}[{Color.yellow}2{Color.gray}]{Color.cyan} About{Color.reset}")
+            print(f"  {Color.gray}[{Color.yellow}3{Color.gray}]{Color.cyan} Update{Color.reset}")
+            sel = input(f"\n{Color.violet}   >>  {Color.reset}").lower()
             if sel in ['1', '2', '3', 'x']:
                 return sel
 
@@ -93,7 +89,7 @@ def dictionary():
         while True:
             graphics.intro(dynamic = False)
             print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
-            nome = input(f"{Color.cyan} Write the name\n{Color.red}  >>  {Color.reset}")
+            nome = input(f"{Color.cyan} Write the name\n{Color.violet}   >> {Color.reset}")
             if all(char.isalpha() for char in nome) and len(nome) > 1 or nome.lower() == 'b':
                 return nome
 
@@ -103,7 +99,7 @@ def dictionary():
         while True:
             graphics.intro(dynamic = False)
             print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")            
-            cognome = input(f"{Color.cyan} Write the surname\n{Color.red}  >>  {Color.reset}")
+            cognome = input(f"{Color.cyan} Write the surname\n{Color.violet}   >> {Color.reset}")
             if all(char.isalpha() for char in cognome) and len(cognome) > 1 or cognome.lower() == 'b':
                 return cognome
 
@@ -113,7 +109,7 @@ def dictionary():
         while True:
             graphics.intro(dynamic = False)
             print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
-            nascita = input(f"{Color.cyan} Write the birth year {Color.gray}(DDMMYYYY)\n{Color.red}  >>  {Color.reset}")
+            nascita = input(f"{Color.cyan} Write the birth year {Color.gray}(DDMMYYYY)\n{Color.violet}   >> {Color.reset}")
             if len(nascita) == 8 and nascita.isdigit() or nascita.lower() == 'b':
                 return nascita
 
@@ -122,10 +118,10 @@ def dictionary():
             return True
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.cyan}          NAME {Color.violet}>>  {Color.reset}{nome.capitalize()}")
-            print(f"{Color.cyan}       SURNAME {Color.violet}>>  {Color.reset}{cognome.capitalize()}")            
-            print(f"{Color.cyan}    BIRTH DATE {Color.violet}>>  {Color.reset}{giorno}/{mese}/{anno}\n")    
-            selezione = input(f"{Color.yellow} Are you sure? {Color.gray}(Y or N)\n{Color.red}  >>  {Color.reset}").lower()
+            print(f"{Color.cyan}          NAME {Color.yellow}>> {Color.reset}{nome.capitalize()}")
+            print(f"{Color.cyan}       SURNAME {Color.yellow}>> {Color.reset}{cognome.capitalize()}")            
+            print(f"{Color.cyan}    BIRTH DATE {Color.yellow}>> {Color.reset}{giorno}/{mese}/{anno}\n")    
+            selezione = input(f"{Color.yellow} Are you sure? {Color.gray}(Y or N)\n{Color.violet}  >> {Color.reset}").lower()
             if selezione == 'y':
                 return True
             elif selezione == 'n':
@@ -144,8 +140,8 @@ def dictionary():
         
         def confermaNomeFile(file):
             graphics.intro(dynamic = False)
-            print(f"{Color.cyan} FILE {Color.violet}>> {Color.reset}{file}{Color.gray}.txt{Color.reset}\n")
-            selezione = input(f"{Color.yellow} Are you sure? {Color.gray}(Y or N)\n{Color.red}  >>  {Color.reset}").lower()
+            print(f"   {Color.cyan}FILE {Color.yellow}>> {Color.reset}{file}{Color.gray}.txt{Color.reset}\n")
+            selezione = input(f"{Color.yellow} Are you sure? {Color.gray}(Y or N)\n{Color.violet}   >> {Color.reset}").lower()
             if selezione not in ('y', 'n'):
                 return confermaNomeFile(file)
             return selezione
@@ -165,10 +161,10 @@ def dictionary():
         while True:
             graphics.intro(dynamic = False)
             print(f"{Color.cyan} Enter the file size:")
-            print(f"{Color.green}  1){Color.reset} Small {Color.gray}{Color.italic} more than 15 thousand passwords")
-            print(f"{Color.green}  2){Color.reset} Big {Color.gray}{Color.italic} more than 500 thousand passwords")
-            print(f"{Color.green}  3){Color.reset} Huge {Color.gray}{Color.italic} more than 19 million passwords\n")
-            sel = input(f"{Color.red}  >>  {Color.reset}")
+            print(f"{Color.gray}  ({Color.yellow}1{Color.gray}){Color.green} Small {Color.gray}{Color.italic} more than 15 thousand passwords{Color.reset}")
+            print(f"{Color.gray}  ({Color.yellow}2{Color.gray}){Color.fucsia} Big {Color.gray}{Color.italic} more than 500 thousand passwords{Color.reset}")
+            print(f"{Color.gray}  ({Color.yellow}3{Color.gray}){Color.red} Huge {Color.gray}{Color.italic} more than 19 million passwords\n{Color.reset}")
+            sel = input(f"{Color.violet}   >> {Color.reset}")
             if sel.isnumeric() and 1 <= int(sel) <= 3: 
                 return int(sel) + 3
 
@@ -316,7 +312,7 @@ if __name__ == "__main__":
         elif opt == '3':
             update()
         elif opt == 'x':
-            print("\n\n")
+            graphics.clear()
             break
             
 
