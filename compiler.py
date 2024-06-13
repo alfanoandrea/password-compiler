@@ -269,6 +269,7 @@ def update():
 
     def performUpdate():
         try:
+            subprocess.run(["git", "reset", "--hard", "HEAD"])
             subprocess.run(["git", "pull", "origin", "main"])
             print(f"{Color.green} Update completed! Please run the script again.{Color.reset}")
             exit()
