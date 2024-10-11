@@ -18,7 +18,7 @@ except ImportError:
 
 
 debug = False
-version = "3.3.3"
+version = "3.4"
 versionURL = "https://github.com/alfanoandrea/password-compiler/raw/main/version.txt"
 repository = "https://github.com/alfanoandrea/password-compiler"
 
@@ -73,10 +73,10 @@ class graphics:
     def selezione():
         while True:
             graphics.intro(dynamic = False)
-            print(f"  {Color.gray}[{Color.yellow}X{Color.gray}]{Color.red} Exit{Color.reset}")
-            print(f"  {Color.gray}[{Color.yellow}1{Color.gray}]{Color.cyan} Generate{Color.reset}")
-            print(f"  {Color.gray}[{Color.yellow}2{Color.gray}]{Color.cyan} About{Color.reset}")
-            print(f"  {Color.gray}[{Color.yellow}3{Color.gray}]{Color.cyan} Update{Color.reset}")
+            print(f"  {Color.gray}({Color.green}X{Color.gray}){Color.red} Exit{Color.reset}")
+            print(f"  {Color.gray}({Color.green}1{Color.gray}){Color.cyan} Generate{Color.reset}")
+            print(f"  {Color.gray}({Color.green}2{Color.gray}){Color.cyan} About{Color.reset}")
+            print(f"  {Color.gray}({Color.green}3{Color.gray}){Color.cyan} Update{Color.reset}")
             sel = input(f"\n{Color.violet}   >> {Color.reset}").lower()
             if sel in ['1', '2', '3', 'x']:
                 return sel
@@ -88,7 +88,7 @@ def dictionary():
             return "babbo"
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
+            print(f"{Color.gray} ({Color.green}B{Color.gray}){Color.yellow} Back{Color.reset}\n")
             nome = input(f"{Color.cyan} Write the name\n{Color.violet}   >> {Color.reset}")
             if all(char.isalpha() for char in nome) and len(nome) > 1 or nome.lower() == 'b':
                 return nome
@@ -98,7 +98,7 @@ def dictionary():
             return "natale"
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")            
+            print(f"{Color.gray} ({Color.green}B{Color.gray}){Color.yellow} Back{Color.reset}\n")            
             cognome = input(f"{Color.cyan} Write the surname\n{Color.violet}   >> {Color.reset}")
             if all(char.isalpha() for char in cognome) and len(cognome) > 1 or cognome.lower() == 'b':
                 return cognome
@@ -108,7 +108,7 @@ def dictionary():
             return "25122000"
         while True:
             graphics.intro(dynamic = False)
-            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
+            print(f"{Color.gray} ({Color.green}B{Color.gray}){Color.yellow} Back{Color.reset}\n")
             nascita = input(f"{Color.cyan} Write the birth year {Color.gray}(DDMMYYYY)\n{Color.violet}   >> {Color.reset}")
             if len(nascita) == 8 and nascita.isdigit() or nascita.lower() == 'b':
                 return nascita
@@ -130,7 +130,7 @@ def dictionary():
     def nomeFile():
         def chiediNomeFile():
             graphics.intro(dynamic=False)
-            print(f"{Color.gray} [{Color.yellow}B{Color.gray}]{Color.yellow} Back{Color.reset}\n")
+            print(f"{Color.gray} ({Color.green}B{Color.gray}){Color.yellow} Back{Color.reset}\n")
             file = input(f"{Color.cyan} Give a name to the file to generate {Color.gray}(without .txt)\n{Color.red}  >>  {Color.reset}")
             if file.lower() == 'b':
                 return 'b'
